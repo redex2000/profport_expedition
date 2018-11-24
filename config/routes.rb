@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :expeditions
+  resources :planets
+  get '/site/hi', to: 'site#hello'
+  get '/site/bye', to: redirect('https://ya.ru')
+  get '/site/about', to: 'site#about'
+  root to: 'planets#index'
 end
