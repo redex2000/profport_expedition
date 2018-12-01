@@ -1,0 +1,7 @@
+%h1.greeting
+  = greeting @name
+  %span --------
+
+= render "shared/time"
+
+= link_to('Планеты', planets_path, class: 'btn btn-info', target: '_blank')

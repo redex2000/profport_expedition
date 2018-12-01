@@ -1,6 +1,6 @@
 class SiteController < ApplicationController
   def hello
-    render plain: 'Привет, контроллер!'
+    @name = "Миша"
   end
 
   def about

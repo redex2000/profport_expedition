@@ -6,6 +6,7 @@ class PlanetsController < ApplicationController
   # CoC
   def index
     @planets = Planet.all
+    render "index"
   end
 
   # GET /planets/1
@@ -25,17 +26,7 @@ class PlanetsController < ApplicationController
   # POST /planets
   # POST /planets.json
   def create
-    @planet = Planet.new(planet_params)
-
-    respond_to do |format|
-      if @planet.save
-        format.html { redirect_to @planet, notice: 'Planet was successfully created.' }
-        format.json { render :show, status: :created, location: @planet }
-      else
-        format.html { render :new }
-        format.json { render json: @planet.errors, status: :unprocessable_entity }
-      end
-    end
+    render plain: params.inspect
   end
 
   # PATCH/PUT /planets/1
