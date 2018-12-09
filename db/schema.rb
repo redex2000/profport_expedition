@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_100100) do
+ActiveRecord::Schema.define(version: 2018_12_08_102703) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "expeditions", force: :cascade do |t|
+    t.string "title"
+  end
 
   create_table "planets", force: :cascade do |t|
     t.string "title"
@@ -20,4 +27,14 @@ ActiveRecord::Schema.define(version: 2018_11_24_100100) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spaceships", force: :cascade do |t|
+    t.string "title"
+    t.float "velocity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "expedition_id"
+    t.index ["expedition_id"], name: "index_spaceships_on_expedition_id"
+  end
+
+  add_foreign_key "spaceships", "expeditions"
 end
