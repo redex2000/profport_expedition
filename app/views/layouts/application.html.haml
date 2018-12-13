@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Экспедиции в космическом агентстве ПрофПорт
+    %title= content_for?(:page_title) ? yield(:page_title) : ApplicationController::PAGE_TITLE
     = csrf_meta_tags
     = csp_meta_tag
 

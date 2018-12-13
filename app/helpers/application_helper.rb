@@ -12,4 +12,12 @@ module ApplicationHelper
         ['Команда', '#'],
     ]
   end
+
+
+  def page_title(title = nil)
+    content_for(:page_title) do
+      [title, ApplicationController::PAGE_TITLE].compact.join("|")
+    end
+  end
+
 end
