@@ -8,7 +8,7 @@ module ApplicationHelper
   def expedition_links
     [
         ['Список', expeditions_path],
-        ['Корабли', '#'],
+        ['Корабли', spaceships_path],
         ['Команда', '#'],
     ]
   end
