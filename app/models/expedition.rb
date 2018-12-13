@@ -7,6 +7,11 @@ class Expedition < ApplicationRecord
   before_save :change_title
   after_create :create_assocs
 
+
+  def total_length
+    itinerary.planets.sum(:distance)
+  end
+
   private
 
   def change_title

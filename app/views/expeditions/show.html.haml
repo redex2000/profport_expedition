@@ -1,1 +1,4 @@
 %h3 Информация об экспедиции «#{@expedition.title}»
+%p
+  %strong Длина маршрута:
+  = @expedition.itinerary.route_length
