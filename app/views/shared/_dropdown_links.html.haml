@@ -1,0 +1,3 @@
+- title, path, options = dropdown_links
+- options ||= {}
+= link_to title, path, options.merge(class: 'p-1 dropdown-item')
