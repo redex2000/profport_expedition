@@ -1,0 +1,6 @@
+%tr
+  %td= link_to spaceship.title, spaceship_path(spaceship)
+  %td
+    = link_to 'Редактировать', edit_spaceship_path(spaceship), class: 'btn btn-warning'
+    |
+    = link_to 'Удалить', spaceship_path(spaceship), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'

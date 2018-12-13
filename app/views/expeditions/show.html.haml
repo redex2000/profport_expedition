@@ -2,3 +2,14 @@
 %p
   %strong Длина маршрута:
   = @expedition.itinerary.route_length
+  %div= link_to 'Список кораблей', '#', data: { toggle: 'collapse', target: '#spaceships' }
+  .collapse.mt-4#spaceships
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Название
+          %th
+
+      %tbody
+        = render collection: @expedition.spaceships, partial: 'spaceships/spaceship'
+
