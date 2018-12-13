@@ -1,0 +1,16 @@
+.float-right
+  = link_to 'Создать', new_spaceship_path, class: 'btn btn-info'
+%table.table.table-hover
+  %thead
+    %tr
+      %th Название
+      %th
+
+  %tbody
+    - @spaceships.each do |spaceship|
+      %tr
+        %td= link_to spaceship.title, spaceship_path(spaceship)
+        %td
+          = link_to 'Редактировать', edit_spaceship_path(spaceship), class: 'btn btn-warning'
+          |
+          = link_to 'Удалить', spaceship_path(spaceship), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
