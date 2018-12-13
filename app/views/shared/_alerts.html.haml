@@ -1,0 +1,9 @@
+- flash.each do |type, message|
+  - if type == 'alert'
+    - css_class = 'alert-warning'
+  - elsif type == 'notice'
+    - css_class = 'alert-info'
+  .alert.alert-dismissible.fade.show{role: 'alert', class: css_class}
+    = message
+    = button_tag class: 'close', data: { dismiss: 'alert' }, aria: { label: 'close' } do
+      %span{ aria: { hidden: 'true' } } &times;

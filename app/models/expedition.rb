@@ -1,6 +1,6 @@
 class Expedition < ApplicationRecord
   has_many :spaceships
-  has_one :itinerary
+  has_one :itinerary, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
 

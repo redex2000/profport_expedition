@@ -1,0 +1,16 @@
+.float-right
+  = link_to 'Создать', new_expedition_path, class: 'btn btn-info'
+%table.table.table-hover
+  %thead
+    %tr
+      %th Название
+      %th
+
+  %tbody
+    - @expeditions.each do |expedition|
+      %tr
+        %td= link_to expedition.title, expedition_path(expedition)
+        %td
+          = link_to 'Редактировать', edit_expedition_path(expedition), class: 'btn btn-warning'
+          |
+          = link_to 'Удалить', expedition_path(expedition), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
