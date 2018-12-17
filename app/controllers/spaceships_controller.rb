@@ -3,6 +3,7 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
+    @spaceship = Spaceship.new
   end
 
   def show

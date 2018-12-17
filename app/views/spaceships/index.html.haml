@@ -1,5 +1,5 @@
 .float-right
-  = link_to 'Создать', new_spaceship_path, class: 'btn btn-info'
+  = link_to 'Создать', new_spaceship_path, class: 'btn btn-info', data: { toggle: 'modal', target: '#spaceship-new' }
 %table.table.table-hover
   %thead
     %tr
@@ -8,3 +8,12 @@
 
   %tbody
     = render collection: @spaceships, partial: 'spaceships/spaceship'
+
+
+.modal.fade#spaceship-new
+  .modal-dialog
+    .modal-content
+      .modal-body
+        = button_tag class: 'close ml-4', data: { dismiss: 'modal' } do
+          %span &times;
+        = render 'form'

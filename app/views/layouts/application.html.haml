@@ -11,4 +11,7 @@
   %body
     = render 'shared/alerts'
     = render 'shared/top_menu'
-    = yield
+    .container
+      .row
+        .col-md-10.col-offset-1
+          = yield
