@@ -2,33 +2,20 @@ require 'test_helper'
 
 class ExpeditionsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get expeditions_index_url
+    get expeditions_url
     assert_response :success
   end
 
-  test "should get show" do
-    get expeditions_show_url
-    assert_response :success
+  test 'should post create' do
+    post expeditions_path, params: { expedition: attributes_for(:expedition) }
+    assert_redirected_to expedition_path(Expedition.last)
   end
 
-  test "should get new" do
-    get expeditions_new_url
-    assert_response :success
-  end
+  test 'should post create new expedition' do
+    assert_difference "Expedition.count", 1 do
+      post expeditions_path, params: { expedition: attributes_for(:expedition) }
+    end
 
-  test "should get create" do
-    get expeditions_create_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get expeditions_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get expeditions_update_url
-    assert_response :success
   end
 
 end
