@@ -36,6 +36,10 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 
+gem 'devise'
+gem 'devise-bootstrap-views'
+gem 'pundit'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
