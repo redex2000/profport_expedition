@@ -7,6 +7,12 @@
   %ul.navbar-nav.mr-auto
     %li.navbar-item
       = link_to 'Планеты', planets_path, class: 'nav-link'
-    %li.navbar-item.dropdown
-      = link_to 'Экспедиции', '#', class: 'nav-link dropdown-toggle', role: 'button', data: { toggle: 'dropdown' }, id: 'expedition-dropdown'
-      = context_menu expedition_links
+    - if session[:user_id].present?
+      %li.navbar-item.dropdown
+        = link_to 'Экспедиции', '#', class: 'nav-link dropdown-toggle', role: 'button', data: { toggle: 'dropdown' }, id: 'expedition-dropdown'
+        = context_menu expedition_links
+      %li.navbar-item.float-right
+        = link_to 'Выйти', session_path(0), method: :delete, class: 'nav-link'
+    - else
+      %li.navbar-item.float-right
+        = link_to 'Войти', new_session_path, class: 'nav-link'
