@@ -2,6 +2,7 @@ class ExpeditionsController < ApplicationController
   before_action :set_model, except: [:new, :create, :index]
 
   def index
+    authorize Expedition
     @expeditions = Expedition.all
   end
 
@@ -9,10 +10,12 @@ class ExpeditionsController < ApplicationController
   end
 
   def new
+    authorize Expedition
     @expedition = Expedition.new
   end
 
   def create
+    authorize Expedition
     @expedition = Expedition.new expedition_params
     if @expedition.save
       redirect_to expeditions_path, notice: 'Сохранение прошло успешно'
@@ -49,6 +52,7 @@ class ExpeditionsController < ApplicationController
 
   def set_model
     @expedition = Expedition.find params[:id]
+    authorize @expedition
   end
 
   def expedition_params
