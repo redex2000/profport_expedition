@@ -4,6 +4,10 @@ class ExpeditionsController < ApplicationController
   def index
     authorize Expedition
     @expeditions = Expedition.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @expeditions }
+    end
   end
 
   def show
@@ -39,12 +43,19 @@ class ExpeditionsController < ApplicationController
 
   def destroy
     @expedition.destroy
-    if @expedition.destroyed?
-      flash[:notice] = 'Удаление прошло успешно'
-    else
-      flash[:alert] = 'Ошибка удаления'
+
+    respond_to do |format|
+      format.html do
+        if @expedition.destroyed?
+          flash[:notice] = 'Удаление прошло успешно'
+        else
+          flash[:alert] = 'Ошибка удаления'
+        end
+        redirect_to expeditions_path
+      end
+      format.js
     end
-    redirect_to expeditions_path
+
   end
 
 
