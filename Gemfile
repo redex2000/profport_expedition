@@ -35,6 +35,8 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 
+gem 'webpacker'
+
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'pundit'

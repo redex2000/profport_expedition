@@ -16,6 +16,10 @@ class ExpeditionsController < ApplicationController
   def new
     authorize Expedition
     @expedition = Expedition.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

@@ -2,7 +2,7 @@
 
 - if policy(Expedition).new?
   .float-right
-    = link_to 'Создать', new_expedition_path, class: 'btn btn-info'
+    = link_to 'Создать', new_expedition_path, class: 'btn btn-info', remote: true
 %table.table.table-hover
   %thead
     %tr
