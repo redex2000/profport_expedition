@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :expeditions
+  resources :expeditions do
+    get "react", on: :collection
+  end
   resources :planets
   resources :spaceships
   resources :galaxies

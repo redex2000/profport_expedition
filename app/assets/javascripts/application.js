@@ -3,5 +3,4 @@
 //= require jquery
 //= require popper
 //= require bootstrap
-//= require es6
 
