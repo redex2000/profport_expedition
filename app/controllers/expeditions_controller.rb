@@ -1,5 +1,6 @@
 class ExpeditionsController < ApplicationController
   before_action :set_model, except: [:new, :create, :index, :react]
+  skip_before_action :authenticate_user!
 
   def index
     authorize Expedition

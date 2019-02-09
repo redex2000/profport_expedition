@@ -1,10 +1,10 @@
 class ExpeditionPolicy < ApplicationPolicy
   def index?
-    user.cosmonaut? || user.commandor?
+    true
   end
 
   def create?
-    user.commandor?
+    true
   end
 
   def show?

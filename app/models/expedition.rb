@@ -6,6 +6,7 @@ class Expedition < ApplicationRecord
 
   before_save :change_title
   after_create :create_assocs
+  after_create :notify
 
 
   def total_length
@@ -21,5 +22,9 @@ class Expedition < ApplicationRecord
 
   def create_assocs
     create_itinerary
+  end
+
+  def notify
+    ActionCable.server.broadcast ExpeditionsChannel::TITLE, partial: ActionController::Base.renderer.render(partial: "expeditions/expedition", object: self)
   end
 end
