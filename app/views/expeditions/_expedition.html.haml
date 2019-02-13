@@ -1,2 +1,6 @@
 %tr{id: "row-#{expedition.id}"}
-  %td= link_to expedition.title
+  %td= link_to expedition.title, expedition_path(expedition)
+  %td
+    = link_to 'Редактировать', edit_expedition_path(expedition), class: 'btn btn-warning'
+    |
+    = link_to 'Удалить', expedition_path(expedition), remote: true, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'

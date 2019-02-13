@@ -1,5 +1,6 @@
 class ExpeditionsController < ApplicationController
   before_action :set_model, except: [:new, :create, :index, :react]
+  after_action :notify, only: %I[create destroy]
   skip_before_action :authenticate_user!
 
   def index
@@ -77,5 +78,9 @@ class ExpeditionsController < ApplicationController
 
   def expedition_params
     params.require(:expedition).permit(:title)
+  end
+
+  def notify
+    ActionCable.server.broadcast ExpeditionsChannel::TITLE, partial: render_to_string(partial: "expeditions/expedition", object: @expedition), action: action_name.to_s, id: @expedition.id
   end
 end

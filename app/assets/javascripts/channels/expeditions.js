@@ -3,6 +3,10 @@ App.cable.subscriptions.create("ExpeditionsChannel", {
     console.log('Привет, веб-сокет!');
   },
   received: function (data) {
-    $("table#expeditions tbody").append(data['partial']);
+    if (data['action'] === 'create') {
+      $("table#expeditions tbody").append(data['partial']);
+    } else if (data['action'] === 'destroy') {
+      $(`#row-${data['id']}`).remove();
+    }
   }
 });

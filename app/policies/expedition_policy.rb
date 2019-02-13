@@ -16,7 +16,7 @@ class ExpeditionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.commandor?
+    true
   end
 
 end
